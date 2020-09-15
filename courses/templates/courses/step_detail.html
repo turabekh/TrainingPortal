@@ -1,0 +1,43 @@
+{% extends "home/base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col card shadow-lg p-4 mb-5 bg-white rounded">
+        <div class="mb-2">
+            <a href="{% url 'course-detail' step.topic.course.slug %}" class="step-link">
+                <i class="fas fa-arrow-left mr-2 lead"></i> 
+                <span class="lead">{{step.topic.course.title}}</span> 
+            </a>
+        </div>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/NIWwJbo-9_8??modestbranding=1&rel=0&iv_load_policy=3&fs=0&disablekb=1&showinfo=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="mt-5 ml-2 mb-5">
+            <h4 class="h4">{{ step.title }} </h4>
+            <p class="">
+                with <a href="" class="step-link">{{ step.topic.teacher.first_name}} {{step.topic.teacher.last_name}}</a>
+            </p>
+            <p class="text-secondary">
+                Our steps have a description but don't actually have any content. Let's fix that!
+            </p>
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item mr-5">
+              <a class="nav-link active step-link" id="teacher-notes-tab" data-toggle="tab" href="#teacher-notes" role="tab" aria-controls="home" aria-selected="true">Teacher's Notes</a>
+            </li>
+            <li class="nav-item mr-5">
+              <a class="nav-link step-link" id="questions-tab" data-toggle="tab" href="#questions" role="tab" aria-controls="profile" aria-selected="false">Questions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link step-link" id="lesson-materials-tab" data-toggle="tab" href="#lesson-materials" role="tab" aria-controls="contact" aria-selected="false">Lesson Materials</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="teacher-notes" role="tabpanel" aria-labelledby="home-tab">{{step.teacher_notes}}</div>
+            <div class="tab-pane fade" id="questions" role="tabpanel" aria-labelledby="profile-tab">Questions</div>
+            <div class="tab-pane fade" id="lesson-materials" role="tabpanel" aria-labelledby="contact-tab">{{step.lesson_materials}}</div>
+          </div>
+    </div>
+</div>
+
+{% endblock content %}

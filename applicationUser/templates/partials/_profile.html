@@ -1,0 +1,14 @@
+  <div class="row shadow-lg p-4 mb-1 bg-white rounded">
+    <div class="col-md-5 img">
+      <img src="{{user.profile.image.url}}" class="card-img" alt="user-image">
+    </div>
+    <div class="col-md-7 details">
+      <blockquote>
+        <h5>{{user.first_name }} {{user.last_name}}</h5>
+        <small><cite title="Source Title">{{user.email}}  <i class="icon-map-marker"></i></cite></small>
+        <hr>
+        <p class="text-secondary">{{user.profile.bio}}</p>
+      </blockquote>
+    </div>
+  </div>
+

@@ -1,0 +1,72 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #edeff0 !important;
+}
+
+header {
+    background-color: #3e474f !important;
+    line-height: 40px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.course-text {
+    font-size: 0.9rem !important;
+}
+
+.container .img{
+    text-align:center;
+}
+.container .details{
+    border-left:3px solid #ded4da;
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+
+.topic-description {
+    font-size: 1rem !important;
+}
+.objectives>li {
+    list-style-type: none;
+}
+.objectives>li:before {
+    content: '✔';
+    font-size: 1.2rem;
+    margin-left: -1em; margin-right: .400em;
+}
+
+.course-link {
+    text-decoration: none ;
+    color: #212529 !important;
+ }
+.course-link:hover
+ {
+   text-decoration:none;
+   cursor:pointer;
+  }
+.course-text {
+    font-size: 1rem !important;
+}
+
+.wrap{
+    height: 408px;
+    overflow: hidden;
+}
+iframe {
+    position: relative;
+    top: -64px;
+}
+
+.step-link {
+    text-decoration: none ;
+    color: #3d6c9b !important;
+ }
+
+ .step-link:hover {
+    text-decoration:none;
+    cursor:pointer;
+    color: #3183d6 !important;
+ }
+

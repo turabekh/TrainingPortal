@@ -1,0 +1,13 @@
+{% extends "home/base.html" %}
+{% block content %}
+
+<div class="row">
+    {% for course in courses %} 
+        {% include "partials/_course.html" %}
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
+
+

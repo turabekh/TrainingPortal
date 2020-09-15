@@ -1,0 +1,80 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row mb-5">
+                <div class="col">
+                    <div class="card rounded">
+                        <div class="card-header bg-{{object.category.color}} py-3 text-white lead">
+                            <p class="h2">Welcome to {{object.title}}</p>
+                        </div>
+                        <div class="card-body">
+                            <h4>About the Course</h4>
+                            <p class="course-text">{{object.description}}</p>
+                            <hr>
+                            <h5>What you'll learn</h5>
+                            <ul class="objectives">
+                                {% for thing in object.learningobjective_set.all %} 
+                                <li class="text-secondary">{{ thing.title }}</li>
+                                {% endfor %}
+                            </ul>
+                            <div class="text-muted">
+                                <button class="btn btn-sm btn-outline-{{course.category.color}} font-weight-bold rounded">{{course.category.name}}</button>
+                                <button class="btn btn-sm btn-outline-{{course.category.color}} text-dark font-weight-bold disabled rounded">{{course.level.get_id_display}}</button>
+                              </div>
+                        </div>
+                        <div class="card-footer text-muted topic-buttons-start">
+                            <div class="mt-2">
+                                <button type="submit" class="btn btn-{{ object.category.color}} lead px-4 mr-auto">Join Course</button>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            {% for topic in object.topic_set.all %} 
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="card rounded">
+                        <div class="card-header bg-{{topic.course.category.color}} py-3 text-white lead">
+                            <i class="fas fa-book-open"></i>
+                            <span class="ml-2">Topic - {{topic.order}}</span>
+                          <span style="float:right;"> {{ topic.time_to_finish }} hours</span>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{topic.title}}</h4>
+                            <p class="card-text course-text topic-description text-secondary course-text">{{topic.description}}</p>
+                        </div>
+                        <div class="card-footer text-muted topic-buttons-start">
+                            <button  data-toggle="collapse" href="#topic-{{topic.id}}" class="btn px-5 btn-outline-{{course.category.color}} font-weight-bold rounded"><i class="fas fa-arrow-down"></i></button>
+                        </div>
+                        <ul class="list-group list-group-flush collapse" id="topic-{{topic.id}}">
+                            {% for step in topic.step_set.all %}
+                            <li class="list-group-item">
+                                <a class="course-link" href="{% url 'step-detail'  topic_slug=topic.slug slug=step.slug %}">{{ step.title }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                      </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="{{object.teacher.profile.image.url}}" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title h3">Teacher</h3>
+                        <h5 class="card-title">{{object.teacher.first_name}} {{object.teacher.last_name}}</h5>
+                      <p class="card-text">{{ object.teacher.profile.bio }}</p>
+                      <p class="card-text"><small class="text-muted">{{object.teacher.email}}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+{% endblock %}

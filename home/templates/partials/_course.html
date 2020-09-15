@@ -1,0 +1,19 @@
+<div class="col-md-4 mb-4">
+  <a class="course-link" href="{% url 'course-detail' course.slug %}">
+    <div class="card rounded">
+      <div class="card-header bg-{{course.category.color}} text-white">
+          <i class="fas fa-book-open"></i>
+        <span style="float:right;"> {{ course.time_to_finish }} hours</span>
+      </div>
+      <div class="card-body">
+          <h6>Course</h6>
+          <h5 class="card-title">{{course.title}}</h5>
+          <p class="card-text course-text">{{course.description|truncatechars:100}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        <button class="btn btn-sm btn-outline-{{course.category.color}} font-weight-bold rounded">{{course.category.name}}</button>
+        <button class="btn btn-sm btn-outline-{{course.category.color}} text-dark font-weight-bold disabled rounded">{{course.level.get_id_display}}</button>
+      </div>
+    </div>
+  </a>
+</div>
